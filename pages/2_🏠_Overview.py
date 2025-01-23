@@ -7,21 +7,24 @@ from utils.styling import load_css
 st.set_page_config(page_title="Project Overview", page_icon="📚", layout="wide")
 load_css()
 
-st.title("📚 Students GPA Prediction")
+st.title("📚 Student's GPA Prediction")
 
 # Project Overview Section
 st.markdown("""
-## About This Project
-This project uses machine learning to predict Student GPA based on various features. The model takes into 
-account factors like Absences, Parental Support, Study Time, etc to estimate Students GPA.
+## 📖 About This Project
+This project leverages **machine learning** to predict students' GPA based on various influential factors. By analyzing features such as **Absences**, **Parental Support**, **Study Time**, and more, the model provides accurate GPA predictions to support data-driven insights in education.
 
-### Dataset Information
-This dataset contains comprehensive information on 2,392 high school students, 
-detailing their demographics, study habits, parental involvement, 
-extracurricular activities, and academic performance. The target variable, GradeClass, 
-classifies students' grades into distinct categories, providing a robust dataset for 
-educational research, predictive modeling, and statistical analysis..
+### 📊 Dataset Overview
+The dataset comprises detailed information on **2,392 high school students**, capturing their:
+- Demographics
+- Study habits
+- Parental involvement
+- Extracurricular activities
+- Academic performance
+
+The target variable, **GradeClass**, categorizes students' grades into distinct groups, offering a rich resource for **educational research**, **predictive modeling**, and **statistical analysis**.
 """)
+
 
 # Load and cache data
 @st.cache_data

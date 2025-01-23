@@ -5,58 +5,53 @@ import plotly.express as px
 from config.config import Config
 from utils.styling import load_css
 
-
-
+# Set page configuration
 st.set_page_config(
     page_title=Config.PAGE_TITLE,
     page_icon=Config.PAGE_ICON,
     layout=Config.LAYOUT
 )
 
+# Load CSS file
 load_css()
 
-st.title("📚 Students GPA Prediction")
-st.markdown("""
-Welcome to the Students GPA Prediction App! This application helps you:
-- Explore the Student Performance Dataset
-- Understand feature relationships
-- Make Students GPA predictions using machine learning
-- View model performance metrics
+# Main title and header
+st.title("🎓 My Portfolio with Streamlit")
+st.header("🌟 GPA Prediction Made Simple")
 
-Use the navigation menu on the left to explore different sections of the app.
-""")
+# Use CSS classes defined in style.css
+st.markdown(
+    """
+    <div class="highlight">
+        Welcome to the **Students' GPA Prediction App**! 🚀 <br>
+        Discover insights and predict student performance with ease.
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
-# Load and display sample data
-@st.cache_data
-def load_data():
-    return pd.read_csv(Config.DATA_PATH)
+st.markdown(
+    """
+    <p class="big-font">
+    In this app, you can explore:
+    </p>
+    <ul>
+        <li>📝 Learn more about me by visiting the <b>Profile Page</b>.</li>
+        <li>📈 Dive into the <b>Student Performance Dataset</b> and explore valuable insights.</li>
+        <li>🔍 Understand the relationships between key features with <i>interactive visualizations</i>.</li>
+        <li>🤖 Predict students' GPA using advanced <b>machine learning models</b>.</li>
+        <li>📊 Evaluate model performance with intuitive metrics and charts.</li>
+    </ul>
+    """,
+    unsafe_allow_html=True
+)
 
-try:
-    df = load_data()
-    
-    # Show dataset overview
-    st.header("📊 Dataset Overview")
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        st.metric("Number of Students", df.shape[0])
-    with col2:
-        st.metric("Average GPA", f"{df['GPA'].mean():,.2f}")
-    with col3:
-        st.metric("Features Used", len(Config.FEATURE_COLUMNS))
-    
-    # Show feature descriptions
-    st.header("📝 Feature Descriptions")
-    descriptions = pd.DataFrame.from_dict(
-        Config.FEATURE_DESCRIPTIONS, 
-        orient='index',
-        columns=['Description']
-    )
-    st.dataframe(descriptions, use_container_width=True)
-    
-    # Show sample data
-    st.header("🔍 Sample Data")
-    st.dataframe(df.head())
-    
-except Exception as e:
-    st.error(f"Error loading data: {str(e)}")
+st.markdown(
+    """
+    ---
+    <h3 class="centered-header">
+        🎉 Ready to explore? Use the sidebar to navigate and start your journey!
+    </h3>
+    """,
+    unsafe_allow_html=True
+)

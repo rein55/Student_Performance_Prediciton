@@ -335,3 +335,24 @@ p {
         break-inside: avoid;
     }
 }
+
+/* Big Font Styling */
+.big-font {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Highlight Section */
+.highlight {
+    background-color: #f0f8ff;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #dce7f3;
+}
+
+/* Centered Header */
+.centered-header {
+    text-align: center;
+    color: #008cba;
+}

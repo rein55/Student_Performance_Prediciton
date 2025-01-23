@@ -24,9 +24,10 @@ with st.form("prediction_form"):
     with col1:
         absences = st.slider(
             "Absences",
-            min_value=0.0,
-            max_value=30.0,
-            value=10.0,
+            min_value=0,
+            max_value=30,
+            value=10,
+            step=1,  # Menentukan langkah sebagai 1 agar hanya menghasilkan bilangan bulat
             help=Config.FEATURE_DESCRIPTIONS['Absences']
         )
         
@@ -154,11 +155,11 @@ if st.session_state.predictions:
                 with cols[0]:
                     st.metric("GPA", f"{pred['prediction']:,.2f}")
                 with cols[1]:
-                    st.metric("Absences", f"{pred['Absences']:.1f}")
+                    st.metric("Absences", f"{pred['Absences']:.0f}")
                 with cols[2]:
-                    st.metric("Parental Support", f"{pred['ParentalSupport']:.4f}")
+                    st.metric("Parental Support", f"{pred['ParentalSupport']:.0f}")
                 with cols[3]:
-                    st.metric("Study Time Weekly", f"{pred['StudyTimeWeekly']:.1f}")
+                    st.metric("Study Time Weekly", f"{pred['StudyTimeWeekly']:.2f}")
     
     with col2:
         if st.button("Clear Prediction History"):
@@ -185,24 +186,18 @@ if st.session_state.predictions:
         st.plotly_chart(fig1, use_container_width=True)
     
     with col2:
-        # Create manual room ranges for grouping
-        df_pred['ParentalSupport'] = pd.cut(
-            df_pred['ParentalSupport'],
-            bins=[2, 4, 5, 6, 7, 8, 9],
-            labels=['2-4', '4-5', '5-6', '6-7', '7-8', '8-9']
-        )
-        
         fig2 = px.box(
             df_pred,
-            x='ParentalSupport',
+            x='ParentalSupport',  # Menggunakan nilai asli tanpa binning
             y='prediction',
-            title='GPA Distribution by ParentalSupport',
+            title='GPA Distribution by Parental Support',
             labels={
                 'ParentalSupport': 'Parental Support',
                 'prediction': 'Predicted GPA'
             }
         )
         st.plotly_chart(fig2, use_container_width=True)
+
     
     # Statistics
     st.subheader("Prediction Statistics")
