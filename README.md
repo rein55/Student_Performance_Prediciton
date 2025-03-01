@@ -292,7 +292,7 @@ docker run -d -p 8000:8000 --memory=1g gpa-fastapi:latest
 5. Open a Pull Request
 
 ## Development Team
-- **Rein L Tobing** - Data Scientist
+- **Rein L Tobing** - Machine Learning Engineer
   - Email: reinltobing@gmail.com
   - LinkedIn: [Rein L Tobing](https://www.linkedin.com/in/rein-l-tobing/)
   - GitHub: [rein55](https://github.com/rein55)
