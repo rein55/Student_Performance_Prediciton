@@ -95,10 +95,15 @@ cd Student_Performance_Prediciton
 ```bash
 # Create virtual environment
 python -m venv venv
+```
 
+```bash
 # Activate virtual environment
 # For Windows
 .\venv\Scripts\activate
+```
+
+```bash
 # For Unix or MacOS
 source venv/bin/activate
 ```
